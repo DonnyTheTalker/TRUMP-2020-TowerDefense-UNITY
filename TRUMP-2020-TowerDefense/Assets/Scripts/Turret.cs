@@ -7,12 +7,21 @@ public class Turret : MonoBehaviour
 
     private Transform _target;
 
-    public float Range = 15f;
-    public float RotationSpeed = 10f;
+    [Header("Attributes")]
+
+    public float Range = 15f; 
+    public float FireRate = 1f;
+    private float _fireCountdown = 0;
+
+    [Header("Unity Setup Fields")]
 
     public string enemyTag = "Enemy";
 
     public Transform RotatingPart;
+    public float RotationSpeed = 10f;
+
+    public GameObject BulletPrefab;
+    public Transform FirePoint;
 
     void Start()
     {
@@ -59,7 +68,27 @@ public class Turret : MonoBehaviour
             Vector3 rotation = Quaternion.Lerp(RotatingPart.rotation, lookRotation, Time.deltaTime * RotationSpeed).eulerAngles;
             RotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
+            _fireCountdown -= Time.deltaTime;
+
+            if (_fireCountdown <= 0) {
+
+                _fireCountdown = 1f / FireRate;
+                Shoot();
+
+            }
+
         }
+    }
+
+    void Shoot()
+    {
+        GameObject bulletGO = (GameObject)Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+
+        if (bullet != null)
+            bullet.SetTarget(_target);
+
+        Debug.Log("Умри, собака");
     }
 
     void OnDrawGizmosSelected()
