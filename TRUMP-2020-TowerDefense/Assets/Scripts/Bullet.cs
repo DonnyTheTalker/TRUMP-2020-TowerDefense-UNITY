@@ -5,7 +5,9 @@ public class Bullet : MonoBehaviour
 
     private Transform _target;
 
-    public float speed = 50f;
+    public float Speed = 50f;
+    public float RotationSpeed = 10f;
+    public float ExplosionRadius = 0f;
 
     // basically, just a particle system used to smooth out an enemy hit
     public GameObject ImpactEffect;
@@ -27,7 +29,7 @@ public class Bullet : MonoBehaviour
         }
 
         Vector3 dir = _target.position - transform.position;
-        float distanceThisFrame = speed * Time.deltaTime;
+        float distanceThisFrame = Speed * Time.deltaTime;
 
         if (dir.magnitude <= distanceThisFrame) {
 
@@ -38,6 +40,12 @@ public class Bullet : MonoBehaviour
         }
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        
+        // smooth change of bullet rotation - is important for rockets
+        dir = _target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * RotationSpeed).eulerAngles;
+        transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
     }
 
@@ -45,11 +53,45 @@ public class Bullet : MonoBehaviour
     {
         // instantiate particle system, that lasts for 2 second and is destoyed by this time
         GameObject effect = (GameObject)Instantiate(ImpactEffect, transform.position, transform.rotation);
-
         Destroy(effect.gameObject, 2f);
-        Destroy(_target.gameObject);
+
+        if (ExplosionRadius > 0f) {
+
+            Explode();
+
+        } else {
+
+            Damage(_target);
+
+        }
+        
         Destroy(gameObject);
     }
 
+    void Explode()
+    {
+        Collider[] objectsHit = Physics.OverlapSphere(transform.position, ExplosionRadius);
+
+        foreach (Collider collider in objectsHit) {
+
+            if (collider.tag == "Enemy") {
+                Damage(collider.transform);
+            }
+
+        }
+
+    }
+
+    void Damage(Transform enemy)
+    {
+        Destroy(enemy.gameObject);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, ExplosionRadius);
+        
+    }
 
 }

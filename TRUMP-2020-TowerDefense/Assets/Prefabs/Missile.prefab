@@ -44,8 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531497a9a4a4eb14a9b24084c4ee1e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  ImpactEffect: {fileID: 0}
+  Speed: 50
+  RotationSpeed: 10
+  ExplosionRadius: 5
+  ImpactEffect: {fileID: 4635561071417678793, guid: 52707dacbac116640916f6a82ab6f9a4,
+    type: 3}
 --- !u!1 &297772743712614388
 GameObject:
   m_ObjectHideFlags: 0

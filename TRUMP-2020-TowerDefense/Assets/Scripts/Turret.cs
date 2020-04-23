@@ -11,7 +11,7 @@ public class Turret : MonoBehaviour
 
     public float Range = 15f; 
     public float FireRate = 1f;
-    private float _fireCountdown = 0;
+    private float _fireCountdown = 0.1f;
 
     [Header("Unity Setup Fields")]
 
@@ -20,11 +20,15 @@ public class Turret : MonoBehaviour
     public Transform RotatingPart;
     public float RotationSpeed = 10f;
 
+    public GameObject BulletStorage;
+    private float _reloadDelay;
+
     public GameObject BulletPrefab;
     public Transform FirePoint;
 
     void Start()
     {
+        _reloadDelay = 1f / FireRate / 3f;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -73,12 +77,20 @@ public class Turret : MonoBehaviour
 
             if (_fireCountdown <= 0) {
 
+                StartCoroutine(Reload());
                 _fireCountdown = 1f / FireRate;
                 Shoot();
 
             }
 
         }
+    }
+
+    IEnumerator Reload()
+    {
+        BulletStorage.SetActive(false);
+        yield return new WaitForSeconds(_reloadDelay);
+        BulletStorage.SetActive(true);
     }
 
     void Shoot()
