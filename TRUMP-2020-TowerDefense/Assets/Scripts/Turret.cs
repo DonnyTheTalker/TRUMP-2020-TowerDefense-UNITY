@@ -88,8 +88,6 @@ public class Turret : MonoBehaviour
 
         if (bullet != null)
             bullet.SetTarget(_target);
-
-        Debug.Log("Умри, собака");
     }
 
     void OnDrawGizmosSelected()
