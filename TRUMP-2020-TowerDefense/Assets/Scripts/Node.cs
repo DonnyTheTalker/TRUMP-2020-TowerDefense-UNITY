@@ -1,12 +1,17 @@
 ﻿using UnityEngine; 
 
+// node, where we can build, upgrade and destroy turrets
 public class Node : MonoBehaviour
 {
-
+    // original node color - same for every node
+    // for the most time gonna be white but everything
+    // can be changed
     public Color HoverColor;
 
     private GameObject _turret;
 
+    // we can calculate those at start so that
+    // this will be small optimization
     private Renderer _renderer;
     private Color _startColor;
 

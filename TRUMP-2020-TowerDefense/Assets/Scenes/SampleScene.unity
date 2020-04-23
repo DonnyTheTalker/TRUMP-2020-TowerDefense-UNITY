@@ -194,6 +194,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 880986536}
     m_Modifications:
+    - target: {fileID: 4886564124878422036, guid: 6286c1371870ee446a3d078c8313ce87,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4886564124878422038, guid: 6286c1371870ee446a3d078c8313ce87,
         type: 3}
       propertyPath: m_Name
@@ -3689,6 +3694,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 880986536}
     m_Modifications:
+    - target: {fileID: 4886564124878422036, guid: 6286c1371870ee446a3d078c8313ce87,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4886564124878422038, guid: 6286c1371870ee446a3d078c8313ce87,
         type: 3}
       propertyPath: m_Name
@@ -4181,14 +4191,14 @@ RectTransform:
   m_GameObject: {fileID: 361154795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.31205106, y: 0.54799104, z: 1}
   m_Children: []
   m_Father: {fileID: 232994207}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.6, y: -50.7}
+  m_AnchoredPosition: {x: -36, y: -57.2}
   m_SizeDelta: {x: 158.8, y: 101.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &361154797
@@ -4242,7 +4252,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 70
-    m_FontStyle: 3
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 7
     m_MaxSize: 70
@@ -4971,6 +4981,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Node (137)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886564124878422039, guid: 6286c1371870ee446a3d078c8313ce87,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4886564124878422122, guid: 6286c1371870ee446a3d078c8313ce87,
         type: 3}
@@ -13443,6 +13458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1181085321}
   - component: {fileID: 1181085320}
+  - component: {fileID: 1181085322}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -13481,6 +13497,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1181085322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181085319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9874c9c91858fbe45a37b24a1b26b81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StandartTurretPrefab: {fileID: 317997608813017384, guid: 1a66b94898770364c81613bce4c9bd57,
+    type: 3}
 --- !u!1001 &1194457913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13911,6 +13941,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 880986536}
     m_Modifications:
+    - target: {fileID: 4886564124878422036, guid: 6286c1371870ee446a3d078c8313ce87,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4886564124878422038, guid: 6286c1371870ee446a3d078c8313ce87,
         type: 3}
       propertyPath: m_Name
@@ -14141,6 +14176,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 880986536}
     m_Modifications:
+    - target: {fileID: 4886564124878422036, guid: 6286c1371870ee446a3d078c8313ce87,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4886564124878422038, guid: 6286c1371870ee446a3d078c8313ce87,
         type: 3}
       propertyPath: m_Name
@@ -15801,6 +15841,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Node (136)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886564124878422039, guid: 6286c1371870ee446a3d078c8313ce87,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4886564124878422122, guid: 6286c1371870ee446a3d078c8313ce87,
         type: 3}

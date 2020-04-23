@@ -32,6 +32,7 @@ public class WaveSpawner : MonoBehaviour
 
     }
 
+    // use IEnumerator so that enemies won't spawn inside themselves
     IEnumerator SpawnWave()
     {
 

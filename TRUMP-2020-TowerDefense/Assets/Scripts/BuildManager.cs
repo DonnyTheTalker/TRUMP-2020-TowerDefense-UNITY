@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// singletone, all the nodes
 public class BuildManager : MonoBehaviour
 {
 

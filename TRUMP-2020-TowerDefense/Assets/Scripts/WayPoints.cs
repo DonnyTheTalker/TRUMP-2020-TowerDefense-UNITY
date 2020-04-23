@@ -6,7 +6,7 @@ public class WayPoints : MonoBehaviour
 {
     public static Transform[] Points;
 
-    private void Awake()
+    void Awake()
     {
 
         Points = new Transform[transform.childCount];

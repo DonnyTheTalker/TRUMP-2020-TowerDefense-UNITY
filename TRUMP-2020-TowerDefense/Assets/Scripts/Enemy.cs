@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
 
     public float Speed = 10f;
 
+    // next way point, last one - is finish by what this object gets destroyed
     private Transform _target;
     private int _iWayPoint = 0;
 
@@ -26,7 +27,8 @@ public class Enemy : MonoBehaviour
 
     void GetNextWayPoint()
     {
-
+        // last way point (the end) is achieved - we can destroy object
+        // and deal damage to player
         if (_iWayPoint + 1 == WayPoints.Points.Length) {
 
             Destroy(gameObject);

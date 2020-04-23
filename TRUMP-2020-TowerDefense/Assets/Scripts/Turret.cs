@@ -63,6 +63,7 @@ public class Turret : MonoBehaviour
     {
         if (_target != null) {
 
+            // we can use quaternion for smooth turret's head movement
             Vector3 dir = _target.position - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(dir);
             Vector3 rotation = Quaternion.Lerp(RotatingPart.rotation, lookRotation, Time.deltaTime * RotationSpeed).eulerAngles;
