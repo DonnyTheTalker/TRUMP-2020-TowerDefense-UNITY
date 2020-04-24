@@ -1,21 +1,25 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
 
     public float Speed = 10f;
+    public int Health = 100;
+    private int _maxHealth;
+    public int Profit = 5;
 
     // next way point, last one - is finish by what this object gets destroyed
     private Transform _target;
     private int _iWayPoint = 0;
 
-    public int Health = 100;
-    public int Profit = 5;
-
     public ParticleSystem DeathEffect;
+
+    public Image HealthBar;
 
     void Start()
     {
+        _maxHealth = Health;
         _target = WayPoints.Points[0];
         _iWayPoint = 0;
     }
@@ -51,6 +55,7 @@ public class Enemy : MonoBehaviour
     {
 
         Health -= amount;
+        HealthBar.fillAmount = Mathf.Max(0f, (float)Health) / _maxHealth;
 
         if (Health <= 0)
             Die();
