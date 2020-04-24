@@ -1,12 +1,14 @@
-﻿using UnityEngine; 
+﻿using UnityEngine;
+using System.Collections;
 
 // node, where we can build, upgrade and destroy turrets
 public class Node : MonoBehaviour
 {
-    // original node color - same for every node
-    // for the most time gonna be white but everything
+    // node entered color - same for every node
+    // for the most time gonna be grey but everything
     // can be changed
     public Color HoverColor;
+    public Color BlockColor = Color.red;
 
     private GameObject _turret;
 
@@ -17,9 +19,16 @@ public class Node : MonoBehaviour
 
     public Vector3 PositionOffset;
 
+    private BuildManager _buildManager;
+
+    public Vector3 GetBuildPosition()
+    {
+        return transform.position + PositionOffset;
+    }
+
     void Start()
     {
-
+        _buildManager = BuildManager.Instance;
         _renderer = GetComponent<Renderer>();
         _startColor = _renderer.material.color;
 
@@ -27,7 +36,13 @@ public class Node : MonoBehaviour
 
     void OnMouseEnter()
     {
-        _renderer.material.color = HoverColor;
+        if (_buildManager.CanBuild) {
+
+            if (_buildManager.PlayerHasMoney)
+                _renderer.material.color = HoverColor;
+            else
+                _renderer.material.color = BlockColor;
+        }
     }
 
     void OnMouseExit()
@@ -37,16 +52,15 @@ public class Node : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (_turret != null) {
+        if (_turret != null ) {
 
             Debug.Log("Already built");
 
-        } else {
+        } else if (_buildManager.CanBuild && _buildManager.PlayerHasMoney) {
 
-            GameObject turretToBuild = BuildManager.Instance.GetTurretToBuild();
-            _turret = (GameObject)Instantiate(turretToBuild, transform.position + PositionOffset, transform.rotation);
+            _turret = _buildManager.BuildTurretOn(this);
 
 
         }
-    }
+    }  
 }
