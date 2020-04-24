@@ -11,8 +11,6 @@ public class WaveSpawner : MonoBehaviour
     
     public float WaveGapDelay = 5.5f;
 
-    public Text CountdownText;
-
     private float _countdown = 2f;
     private int _waveIndex = 0;
 
@@ -20,8 +18,6 @@ public class WaveSpawner : MonoBehaviour
     {
 
         _countdown -= Time.deltaTime;
-
-        CountdownText.text = Math.Round(_countdown).ToString();
 
         if (_countdown <= 0f) {
 
