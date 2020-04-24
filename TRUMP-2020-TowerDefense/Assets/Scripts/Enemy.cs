@@ -9,6 +9,11 @@ public class Enemy : MonoBehaviour
     private Transform _target;
     private int _iWayPoint = 0;
 
+    public int Health = 100;
+    public int Profit = 5;
+
+    public ParticleSystem DeathEffect;
+
     void Start()
     {
         _target = WayPoints.Points[0];
@@ -32,14 +37,33 @@ public class Enemy : MonoBehaviour
         if (_iWayPoint + 1 == WayPoints.Points.Length) {
 
             Destroy(gameObject);
-            PlayerStats.GetDamage();
+            PlayerStats.TakeDamage();
 
             return;
 
         }
 
-        _target = WayPoints.Points[++_iWayPoint];
+        _target = WayPoints.Points[++_iWayPoint]; 
 
+    }
+
+    public void TakeDamage(int amount)
+    {
+
+        Health -= amount;
+
+        if (Health <= 0)
+            Die();
+
+    }
+
+    void Die()
+    {
+        ParticleSystem effect = (ParticleSystem)Instantiate(DeathEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 2f);
+
+        PlayerStats.Money += Profit;
+        Destroy(gameObject);
 
     }
 

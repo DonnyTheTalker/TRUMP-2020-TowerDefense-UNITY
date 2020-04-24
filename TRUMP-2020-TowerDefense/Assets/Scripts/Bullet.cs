@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
     public float RotationSpeed = 10f;
     public float ExplosionRadius = 0f;
 
+    public int nDamage;
+
     // basically, just a particle system used to smooth out an enemy hit
     public GameObject ImpactEffect;
 
@@ -84,8 +86,12 @@ public class Bullet : MonoBehaviour
 
     void Damage(Transform enemy)
     {
-        PlayerStats.Money += 5;
-        Destroy(enemy.gameObject);
+
+        Enemy _enemy = enemy.GetComponent<Enemy>();
+
+        if (_enemy != null)
+            _enemy.TakeDamage(nDamage); 
+
     }
 
     void OnDrawGizmosSelected()

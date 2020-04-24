@@ -21,7 +21,7 @@ public class PlayerStats : MonoBehaviour
         EndImage = endImage;
     }
     
-    public static void GetDamage()
+    public static void TakeDamage()
     {
 
         if (--nLives <= 0)
