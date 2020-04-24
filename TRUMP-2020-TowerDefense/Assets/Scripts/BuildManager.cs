@@ -10,6 +10,8 @@ public class BuildManager : MonoBehaviour
     public bool CanBuild { get { return _turretToBuild != null; } }
     public bool PlayerHasMoney { get { return PlayerStats.Money >= GetTurretToBuild().Cost; } }
 
+    public GameObject BuildEffect;
+
     void Awake()
     {
         Instance = this;
@@ -44,6 +46,10 @@ public class BuildManager : MonoBehaviour
             return null;
         }
         PlayerStats.Money -= _turretToBuild.Cost;
+
+        GameObject effect = (GameObject)Instantiate(BuildEffect, node.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 2f);
+
         return(GameObject)Instantiate(_turretToBuild.Prefab, node.GetBuildPosition(), node.transform.rotation);
     }
 

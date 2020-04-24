@@ -32,6 +32,8 @@ public class Enemy : MonoBehaviour
         if (_iWayPoint + 1 == WayPoints.Points.Length) {
 
             Destroy(gameObject);
+            PlayerStats.GetDamage();
+
             return;
 
         }
