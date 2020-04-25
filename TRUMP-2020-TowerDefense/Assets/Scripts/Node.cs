@@ -17,6 +17,8 @@ public class Node : MonoBehaviour
     private Renderer _renderer;
     private Color _startColor;
 
+    // our node can change it's position and it won't cause
+    // turret positioning troubles
     public Vector3 PositionOffset;
 
     private BuildManager _buildManager;
@@ -54,7 +56,7 @@ public class Node : MonoBehaviour
     {
         if (_turret != null ) {
 
-            Debug.Log("Already built");
+            // TODO turret upgrades, turret destroy
 
         } else if (_buildManager.CanBuild && _buildManager.PlayerHasMoney) {
 

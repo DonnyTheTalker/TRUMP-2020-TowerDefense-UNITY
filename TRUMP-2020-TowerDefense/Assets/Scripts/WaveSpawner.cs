@@ -15,8 +15,7 @@ public class WaveSpawner : MonoBehaviour
     private int _waveIndex = 0;
 
     void Update()
-    {
-
+    { 
         _countdown -= Time.deltaTime;
 
         if (_countdown <= 0f) {
@@ -24,8 +23,7 @@ public class WaveSpawner : MonoBehaviour
             StartCoroutine(SpawnWave());
             _countdown = WaveGapDelay;
 
-        }
-
+        } 
     }
 
     // use IEnumerator so that enemies won't spawn inside themselves

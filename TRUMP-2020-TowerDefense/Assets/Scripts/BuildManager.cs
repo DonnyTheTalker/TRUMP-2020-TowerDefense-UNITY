@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// singletone, all the nodes
+// singletone, all the nodes share the same instance
 public class BuildManager : MonoBehaviour
 {
 
@@ -10,7 +10,8 @@ public class BuildManager : MonoBehaviour
     public bool CanBuild { get { return _turretToBuild != null; } }
     public bool PlayerHasMoney { get { return PlayerStats.Money >= GetTurretToBuild().Cost; } }
 
-    public GameObject BuildEffect;
+    // particle system, emitting for turret building
+    public GameObject BuildEffect; 
 
     void Awake()
     {

@@ -70,8 +70,9 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Explode()
+    void Explode() 
     {
+        // missile spreads area damage
         Collider[] objectsHit = Physics.OverlapSphere(transform.position, ExplosionRadius);
 
         foreach (Collider collider in objectsHit) {

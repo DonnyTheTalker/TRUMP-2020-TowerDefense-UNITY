@@ -86,6 +86,8 @@ public class Turret : MonoBehaviour
         }
     }
 
+    // upload new missile into missile launcher
+    // using some trick
     IEnumerator Reload()
     {
         BulletStorage.SetActive(false);
