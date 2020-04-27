@@ -4898,6 +4898,9 @@ MonoBehaviour:
   IsLaser: 1
   Laser: {fileID: 841913003}
   ImpactEffect: {fileID: 4595216018997532556}
+  ImpactLight: {fileID: 2281870841132058960}
+  DamagePerSecond: 40
+  SlowPercentage: 0.3
   enemyTag: Enemy
   RotatingPart: {fileID: 7953024282664142970}
   RotationSpeed: 10

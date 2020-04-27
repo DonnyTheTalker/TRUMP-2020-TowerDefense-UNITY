@@ -6,6 +6,7 @@ public class Turret : MonoBehaviour
 {
 
     private Transform _target;
+    private Enemy _targetEnemy;
 
     [Header("Attributes")]
 
@@ -15,9 +16,13 @@ public class Turret : MonoBehaviour
 
     [Header("Optional Laser Attributes")]
     public bool IsLaser = false;
+    
     public LineRenderer Laser;
     public ParticleSystem ImpactEffect;
     public Light ImpactLight;
+
+    public int DamagePerSecond = 35;
+    public float SlowPercentage = 0.3f;
 
     [Header("Unity Setup Fields")]
 
@@ -35,14 +40,11 @@ public class Turret : MonoBehaviour
     void Start()
     {
         _reloadDelay = 1f / FireRate / 3f;
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.5f); 
 
         if (IsLaser) {
 
-            Laser.enabled = false;
-            ImpactEffect.Stop();
-            ImpactLight.enabled = false;
-
+            DisableLaser();
         }
     }
 
@@ -68,6 +70,7 @@ public class Turret : MonoBehaviour
         if (nearestEnemy != null && shortestDistance <= Range) {
 
             _target = nearestEnemy.transform;
+            _targetEnemy = _target.GetComponent<Enemy>();
 
         } else {
 
@@ -102,9 +105,7 @@ public class Turret : MonoBehaviour
 
         } else if (IsLaser && Laser.enabled) {
 
-            Laser.enabled = false;
-            ImpactEffect.Stop();
-            ImpactLight.enabled = false;
+            DisableLaser();
 
         }
     }
@@ -121,22 +122,43 @@ public class Turret : MonoBehaviour
 
     void UseLaser()
     {
+        _targetEnemy.TakeDamage(DamagePerSecond * Time.deltaTime);
 
-        if (!Laser.enabled) {
-            Laser.enabled = true;
-            ImpactEffect.Play();
-            ImpactLight.enabled = true;
+        if (_target != null) {
+
+            _targetEnemy.Slow(SlowPercentage);
+
+            if (!Laser.enabled) {
+                EnableLaser();
+            }
+
+            Laser.SetPosition(0, FirePoint.position);
+            Laser.SetPosition(1, _target.position);
+
+            Vector3 dir = FirePoint.position - _target.position;
+
+            ImpactEffect.transform.position = _target.position + dir.normalized;
+
+            ImpactEffect.transform.rotation = Quaternion.LookRotation(dir);
+        } else {
+
+            DisableLaser();
+
         }
+    }
 
-        Laser.SetPosition(0, FirePoint.position);
-        Laser.SetPosition(1, _target.position);
+    void EnableLaser()
+    {
+        Laser.enabled = true;
+        ImpactEffect.Play();
+        ImpactLight.enabled = true;
+    }
 
-        Vector3 dir = FirePoint.position - _target.position;
-
-        ImpactEffect.transform.position = _target.position + dir.normalized;
-
-        ImpactEffect.transform.rotation = Quaternion.LookRotation(dir);
-
+    void DisableLaser()
+    {
+        Laser.enabled = false;
+        ImpactEffect.Stop();
+        ImpactLight.enabled = false;
     }
 
     // upload new missile into missile launcher

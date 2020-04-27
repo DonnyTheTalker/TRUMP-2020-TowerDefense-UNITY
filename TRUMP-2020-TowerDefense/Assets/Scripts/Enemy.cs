@@ -5,13 +5,11 @@ public class Enemy : MonoBehaviour
 {
 
     public float Speed = 10f;
-    public int Health = 100;
-    private int _maxHealth;
-    public int Profit = 5;
-
-    // next way point, last one - is finish by what this object gets destroyed
-    private Transform _target;
-    private int _iWayPoint = 0;
+    [HideInInspector]
+    public float _maxSpeed;
+    public float Health = 100f;
+    private float _maxHealth;
+    public int Profit = 10; 
 
     public ParticleSystem DeathEffect;
 
@@ -20,38 +18,10 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         _maxHealth = Health;
-        _target = WayPoints.Points[0];
-        _iWayPoint = 0;
-    }
+        _maxSpeed = Speed;
+    } 
 
-    void Update()
-    {
-        Vector3 dir = _target.position - transform.position;
-        transform.Translate(dir.normalized * Speed * Time.deltaTime, Space.World);
-
-        if (Vector3.Distance(_target.position, transform.position) <= 0.2f)
-            GetNextWayPoint();
-
-    }
-
-    void GetNextWayPoint()
-    {
-        // last way point (the end) is achieved - we can destroy object
-        // and deal damage to player
-        if (_iWayPoint + 1 == WayPoints.Points.Length) {
-
-            Destroy(gameObject);
-            PlayerStats.TakeDamage();
-
-            return;
-
-        }
-
-        _target = WayPoints.Points[++_iWayPoint]; 
-
-    }
-
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
 
         Health -= amount;
@@ -70,6 +40,11 @@ public class Enemy : MonoBehaviour
         PlayerStats.Money += Profit;
         Destroy(gameObject);
 
+    }
+
+    public void Slow(float slowPercentage)
+    {
+        Speed = _maxSpeed * (1f - slowPercentage);
     }
 
 }
