@@ -16,6 +16,8 @@ public class Turret : MonoBehaviour
     [Header("Optional Laser Attributes")]
     public bool IsLaser = false;
     public LineRenderer Laser;
+    public ParticleSystem ImpactEffect;
+    public Light ImpactLight;
 
     [Header("Unity Setup Fields")]
 
@@ -34,6 +36,14 @@ public class Turret : MonoBehaviour
     {
         _reloadDelay = 1f / FireRate / 3f;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+
+        if (IsLaser) {
+
+            Laser.enabled = false;
+            ImpactEffect.Stop();
+            ImpactLight.enabled = false;
+
+        }
     }
 
     void UpdateTarget()
@@ -93,6 +103,8 @@ public class Turret : MonoBehaviour
         } else if (IsLaser && Laser.enabled) {
 
             Laser.enabled = false;
+            ImpactEffect.Stop();
+            ImpactLight.enabled = false;
 
         }
     }
@@ -110,11 +122,20 @@ public class Turret : MonoBehaviour
     void UseLaser()
     {
 
-        if (!Laser.enabled)
+        if (!Laser.enabled) {
             Laser.enabled = true;
+            ImpactEffect.Play();
+            ImpactLight.enabled = true;
+        }
 
         Laser.SetPosition(0, FirePoint.position);
         Laser.SetPosition(1, _target.position);
+
+        Vector3 dir = FirePoint.position - _target.position;
+
+        ImpactEffect.transform.position = _target.position + dir.normalized;
+
+        ImpactEffect.transform.rotation = Quaternion.LookRotation(dir);
 
     }
 
