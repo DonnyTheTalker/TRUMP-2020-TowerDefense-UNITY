@@ -30,7 +30,9 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
 
+        PlayerStats.RoundsSurvived = _waveIndex;
         _waveIndex += 1;
+
         int nEnemies = Math.Max(1, (int)(_waveIndex * 1.2f));
 
         for (int i = 0; i < nEnemies; i++) {
