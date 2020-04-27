@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         ParticleSystem effect = (ParticleSystem)Instantiate(DeathEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 2f);
+        Destroy(effect.gameObject, 2f);
 
         PlayerStats.Money += Profit;
         Destroy(gameObject);

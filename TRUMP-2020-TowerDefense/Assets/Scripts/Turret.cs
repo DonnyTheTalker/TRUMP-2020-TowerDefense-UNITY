@@ -13,6 +13,10 @@ public class Turret : MonoBehaviour
     public float FireRate = 1f;
     private float _fireCountdown = 0.1f;
 
+    [Header("Optional Laser Attributes")]
+    public bool IsLaser = false;
+    public LineRenderer Laser;
+
     [Header("Unity Setup Fields")]
 
     public string enemyTag = "Enemy";
@@ -67,23 +71,51 @@ public class Turret : MonoBehaviour
     {
         if (_target != null) {
 
-            // we can use quaternion for smooth turret's head movement
-            Vector3 dir = _target.position - transform.position;
-            Quaternion lookRotation = Quaternion.LookRotation(dir);
-            Vector3 rotation = Quaternion.Lerp(RotatingPart.rotation, lookRotation, Time.deltaTime * RotationSpeed).eulerAngles;
-            RotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+            LockOnTarget();
 
-            _fireCountdown -= Time.deltaTime;
+            if (IsLaser) {
 
-            if (_fireCountdown <= 0) {
+                UseLaser();
 
-                StartCoroutine(Reload());
-                _fireCountdown = 1f / FireRate;
-                Shoot();
+            } else {
 
+                _fireCountdown -= Time.deltaTime;
+
+                if (_fireCountdown <= 0) {
+
+                    StartCoroutine(Reload());
+                    _fireCountdown = 1f / FireRate;
+                    Shoot();
+
+                }
             }
 
+        } else if (IsLaser && Laser.enabled) {
+
+            Laser.enabled = false;
+
         }
+    }
+
+    void LockOnTarget()
+    {
+        // we can use quaternion for smooth turret's head movement
+        Vector3 dir = _target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(RotatingPart.rotation, lookRotation, Time.deltaTime * RotationSpeed).eulerAngles;
+        RotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+
+    }
+
+    void UseLaser()
+    {
+
+        if (!Laser.enabled)
+            Laser.enabled = true;
+
+        Laser.SetPosition(0, FirePoint.position);
+        Laser.SetPosition(1, _target.position);
+
     }
 
     // upload new missile into missile launcher
