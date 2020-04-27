@@ -39,7 +39,7 @@ public class Turret : MonoBehaviour
 
     void Start()
     {
-        _reloadDelay = 1f / FireRate / 3f;
+        _reloadDelay = 1f / FireRate / 1.5f;
         InvokeRepeating("UpdateTarget", 0f, 0.5f); 
 
         if (IsLaser) {
