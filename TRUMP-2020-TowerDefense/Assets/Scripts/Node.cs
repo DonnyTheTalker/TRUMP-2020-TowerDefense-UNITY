@@ -21,7 +21,7 @@ public class Node : MonoBehaviour
     // turret positioning troubles
     public Vector3 PositionOffset;
 
-    private BuildManager _buildManager;
+    private BuildManager _buildManager; 
 
     public Vector3 GetBuildPosition()
     {
@@ -40,7 +40,7 @@ public class Node : MonoBehaviour
     {
         if (_buildManager.CanBuild) {
 
-            if (_buildManager.PlayerHasMoney)
+            if (_buildManager.PlayerHasMoney || _turret != null)
                 _renderer.material.color = HoverColor;
             else
                 _renderer.material.color = BlockColor;
@@ -56,12 +56,11 @@ public class Node : MonoBehaviour
     {
         if (_turret != null ) {
 
-            // TODO turret upgrades, turret destroy
+            _buildManager.SelectNode(this); 
 
         } else if (_buildManager.CanBuild && _buildManager.PlayerHasMoney) {
 
             _turret = _buildManager.BuildTurretOn(this);
-
 
         }
     }  

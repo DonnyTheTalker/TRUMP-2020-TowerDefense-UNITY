@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     public void SetTarget(Transform target)
     {
         _target = target;    
-    }
+    } 
 
     void Update()
     {

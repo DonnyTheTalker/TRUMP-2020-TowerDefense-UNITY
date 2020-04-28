@@ -18,11 +18,15 @@ public class BuildManager : MonoBehaviour
         Instance = this;
     } 
 
-    private TurretBlueprint _turretToBuild; 
+    private TurretBlueprint _turretToBuild;
+    private Node _selectedNode; 
+    public NodeUI nodeUI;
 
     void Start()
     {
         _turretToBuild = null;
+        _selectedNode = null;
+        nodeUI.Disable();
     }
 
     public TurretBlueprint GetTurretToBuild()
@@ -38,6 +42,31 @@ public class BuildManager : MonoBehaviour
     public void SetTurretToBuld(TurretBlueprint turret)
     {
         _turretToBuild = turret;
+        _selectedNode = null;
+        nodeUI.Disable();
+    }
+
+    public void SelectNode(Node node)
+    {
+        if (node == _selectedNode) {
+
+            DeselectNode();
+
+        } else {
+
+            _selectedNode = node;
+            _turretToBuild = null;
+            nodeUI.Able();
+            nodeUI.SetTarget(node);
+
+        }
+    }
+
+    public void DeselectNode()
+    {
+        _selectedNode = null;
+        _turretToBuild = null;
+        nodeUI.Disable();
     }
 
     public GameObject BuildTurretOn(Node node)
