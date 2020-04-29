@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 // node, where we can build, upgrade and destroy turrets
 public class Node : MonoBehaviour
@@ -40,6 +41,9 @@ public class Node : MonoBehaviour
     void OnMouseEnter()
     {
 
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         Debug.Log("MouseEnter");
 
         if (_buildManager.CanBuild) {
@@ -53,6 +57,8 @@ public class Node : MonoBehaviour
 
     void OnMouseExit()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
         Debug.Log("MouseExit");
         _renderer.material.color = _startColor;
     }
@@ -67,6 +73,7 @@ public class Node : MonoBehaviour
             if (_buildManager.GetNode() != null) {
                 _buildManager.nodeUI.SetProperties(_turretScript);
             }
+            _renderer.material.color = _startColor;
 
         } else if (_buildManager.CanBuild && _buildManager.PlayerHasMoney) {
 
@@ -75,7 +82,7 @@ public class Node : MonoBehaviour
 
         }
     } 
-    public void UpgradeTurret()
+    public void UpgradeTurret(GameObject upgradeEffect)
     {
 
         if (PlayerStats.Money < _turretScript.UpgradeCost || _turretScript.IsUpgraded) {
@@ -101,7 +108,10 @@ public class Node : MonoBehaviour
             _turretScript.DamagePerSecond = (int)(_turretScript.DamagePerSecond * 1.5f);
             _turretScript.SlowPercentage *= 1.3f;
 
-            _buildManager.nodeUI.SetProperties(_turretScript);
+            GameObject effect = (GameObject)Instantiate(upgradeEffect, GetBuildPosition(), Quaternion.identity);
+            Destroy(effect.gameObject, 2f);
+
+            _buildManager.DeselectNode();
 
         }
 

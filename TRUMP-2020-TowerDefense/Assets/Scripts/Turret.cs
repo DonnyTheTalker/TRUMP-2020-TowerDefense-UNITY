@@ -178,6 +178,11 @@ public class Turret : MonoBehaviour
         GameObject bulletGO = (GameObject)Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
+        if (IsUpgraded) {
+            bullet.nDamage = (int)(bullet.nDamage * 1.5f);
+            bullet.ExplosionRadius *= 1.5f;
+        }
+
         if (bullet != null)
             bullet.SetTarget(_target);
     }

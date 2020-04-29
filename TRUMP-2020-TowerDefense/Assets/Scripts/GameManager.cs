@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     private bool _gameEnded;
     public GameObject GameOverUI;
+    public GameObject nodeUI;
 
     void Start()
     {
@@ -18,11 +19,9 @@ public class GameManager : MonoBehaviour
     
         if (!_gameEnded) {
 
-            if (Input.GetKeyDown("e"))
-                EndGame();
-
             if (PlayerStats.nLives <= 0) {
 
+                nodeUI.SetActive(false);
                 EndGame();
 
             }

@@ -11,6 +11,10 @@ public class NodeUI : MonoBehaviour
 
     public Text UpgradeButtonText;
     public Button UpgradeButton;
+    public Text SellButtonText;
+
+    public GameObject UpgradeEffect;
+    public GameObject SellEffect;
 
     public void SetTarget(Node target)
     {
@@ -54,8 +58,13 @@ public class NodeUI : MonoBehaviour
     public void UpgradeTurret()
     {
         Debug.Log("Upgrade Hub");
-        _target.UpgradeTurret();
+        _target.UpgradeTurret(UpgradeEffect); 
 
+    }
+
+    public void Ssos()
+    {
+        Debug.Log("Ёбаный рот этого казино блядь");
     }
 
 }

@@ -280,8 +280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Range: 20
   FireRate: 0.25
-  DamagePerSecond: 35
-  UpgradeCost: 200
+  DamagePerSecond: 75
+  UpgradeCost: 350
   IsUpgraded: 0
   IsLaser: 0
   Laser: {fileID: 0}

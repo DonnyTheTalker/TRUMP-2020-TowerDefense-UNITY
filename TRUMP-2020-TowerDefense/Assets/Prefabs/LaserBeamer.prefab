@@ -4896,7 +4896,7 @@ MonoBehaviour:
   Range: 20
   FireRate: 1
   DamagePerSecond: 40
-  UpgradeCost: 350
+  UpgradeCost: 500
   IsUpgraded: 0
   IsLaser: 1
   Laser: {fileID: 841913003}
@@ -4907,7 +4907,8 @@ MonoBehaviour:
   RotatingPart: {fileID: 7953024282664142970}
   RotationSpeed: 10
   BulletStorage: {fileID: 6185305579908890735}
-  BulletPrefab: {fileID: 0}
+  BulletPrefab: {fileID: 4481380844835619391, guid: 07d4d241e675d2345a8d46f61265c34d,
+    type: 3}
   FirePoint: {fileID: 2118756643450114300}
 --- !u!120 &841913003
 LineRenderer:

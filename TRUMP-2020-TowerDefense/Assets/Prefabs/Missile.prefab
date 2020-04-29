@@ -47,7 +47,7 @@ MonoBehaviour:
   Speed: 50
   RotationSpeed: 10
   ExplosionRadius: 7
-  nDamage: 85
+  nDamage: 80
   ImpactEffect: {fileID: 4635561071417678793, guid: 52707dacbac116640916f6a82ab6f9a4,
     type: 3}
 --- !u!1 &297772743712614388
