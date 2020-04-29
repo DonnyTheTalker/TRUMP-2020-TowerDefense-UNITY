@@ -15,6 +15,7 @@ public class Turret : MonoBehaviour
     private float _fireCountdown = 0.1f;
     public int DamagePerSecond = 35;
 
+    public int SellCost;
     public int UpgradeCost;
     public bool IsUpgraded = false;
 

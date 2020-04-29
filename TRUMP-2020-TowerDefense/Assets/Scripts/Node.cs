@@ -103,6 +103,7 @@ public class Node : MonoBehaviour
 
             _turret.transform.localScale = newScale;
 
+            _turretScript.SellCost = (int)(_turretScript.SellCost * 1.5f);
             _turretScript.FireRate *= 1.5f;
             _turretScript.Range *= 1.5f;
             _turretScript.DamagePerSecond = (int)(_turretScript.DamagePerSecond * 1.5f);
@@ -114,6 +115,20 @@ public class Node : MonoBehaviour
             _buildManager.DeselectNode();
 
         }
+
+    }
+
+    public void SellNode(GameObject sellEffect)
+    {
+
+        PlayerStats.Money += _turretScript.SellCost;
+
+        GameObject effect = (GameObject)Instantiate(sellEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(_turret.gameObject, 0.5f);
+        Destroy(effect.gameObject, 2f);
+        
+        _buildManager.DeselectNode(); 
+        _turret = null;
 
     }
 

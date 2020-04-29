@@ -54,6 +54,8 @@ public class NodeUI : MonoBehaviour
             UpgradeButton.interactable = true;
 
         }
+
+        SellButtonText.text = turret.SellCost.ToString() + "$";
     } 
     public void UpgradeTurret()
     {
@@ -62,9 +64,10 @@ public class NodeUI : MonoBehaviour
 
     }
 
-    public void Ssos()
+    public void Sell()
     {
         Debug.Log("Ёбаный рот этого казино блядь");
+        _target.SellNode(SellEffect);
     }
 
 }
