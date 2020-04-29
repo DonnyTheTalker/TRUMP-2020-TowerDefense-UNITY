@@ -20,7 +20,7 @@ public class BuildManager : MonoBehaviour
 
     private TurretBlueprint _turretToBuild;
     private Node _selectedNode; 
-    public NodeUI nodeUI;
+    public NodeUI nodeUI; 
 
     void Start()
     {
@@ -62,6 +62,11 @@ public class BuildManager : MonoBehaviour
         }
     }
 
+    public Node GetNode()
+    {
+        return _selectedNode;
+    }
+
     public void DeselectNode()
     {
         _selectedNode = null;
@@ -71,7 +76,6 @@ public class BuildManager : MonoBehaviour
 
     public GameObject BuildTurretOn(Node node)
     {
-
         if (!PlayerHasMoney) { 
             return null;
         }
@@ -80,7 +84,7 @@ public class BuildManager : MonoBehaviour
         GameObject effect = (GameObject)Instantiate(BuildEffect, node.GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 2f);
 
-        return(GameObject)Instantiate(_turretToBuild.Prefab, node.GetBuildPosition(), node.transform.rotation);
-    }
+        return (GameObject)Instantiate(_turretToBuild.Prefab, node.GetBuildPosition(), node.transform.rotation);
+    } 
 
 }

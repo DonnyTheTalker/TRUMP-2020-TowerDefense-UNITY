@@ -11,6 +11,7 @@ public class Node : MonoBehaviour
     public Color BlockColor = Color.red;
 
     private GameObject _turret;
+    private Turret _turretScript;
 
     // we can calculate those at start so that
     // this will be small optimization
@@ -38,6 +39,9 @@ public class Node : MonoBehaviour
 
     void OnMouseEnter()
     {
+
+        Debug.Log("MouseEnter");
+
         if (_buildManager.CanBuild) {
 
             if (_buildManager.PlayerHasMoney || _turret != null)
@@ -49,19 +53,58 @@ public class Node : MonoBehaviour
 
     void OnMouseExit()
     {
+        Debug.Log("MouseExit");
         _renderer.material.color = _startColor;
     }
 
     void OnMouseDown()
     {
+        Debug.Log("MouseDown");
         if (_turret != null ) {
 
             _buildManager.SelectNode(this); 
+            
+            if (_buildManager.GetNode() != null) {
+                _buildManager.nodeUI.SetProperties(_turretScript);
+            }
 
         } else if (_buildManager.CanBuild && _buildManager.PlayerHasMoney) {
 
             _turret = _buildManager.BuildTurretOn(this);
+            _turretScript = _turret.GetComponent<Turret>();
 
         }
-    }  
+    } 
+    public void UpgradeTurret()
+    {
+
+        if (PlayerStats.Money < _turretScript.UpgradeCost || _turretScript.IsUpgraded) {
+
+            return;
+
+        } else {
+
+
+            PlayerStats.Money -= _turretScript.UpgradeCost;
+            _turretScript.IsUpgraded = true;
+
+            Vector3 newScale;
+
+            newScale.x = 1.2f;
+            newScale.y = 1.2f;
+            newScale.z = 1.2f;
+
+            _turret.transform.localScale = newScale;
+
+            _turretScript.FireRate *= 1.5f;
+            _turretScript.Range *= 1.5f;
+            _turretScript.DamagePerSecond = (int)(_turretScript.DamagePerSecond * 1.5f);
+            _turretScript.SlowPercentage *= 1.3f;
+
+            _buildManager.nodeUI.SetProperties(_turretScript);
+
+        }
+
+    }
+
 }

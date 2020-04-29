@@ -47,6 +47,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Range: 15
   FireRate: 1
+  DamagePerSecond: 35
+  UpgradeCost: 70
+  IsUpgraded: 0
+  IsLaser: 0
+  Laser: {fileID: 0}
+  ImpactEffect: {fileID: 0}
+  ImpactLight: {fileID: 0}
+  SlowPercentage: 0.3
   enemyTag: Enemy
   RotatingPart: {fileID: 5895501511104162264}
   RotationSpeed: 10

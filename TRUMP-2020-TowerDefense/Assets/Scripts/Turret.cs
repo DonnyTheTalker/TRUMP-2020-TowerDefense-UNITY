@@ -13,6 +13,10 @@ public class Turret : MonoBehaviour
     public float Range = 15f; 
     public float FireRate = 1f;
     private float _fireCountdown = 0.1f;
+    public int DamagePerSecond = 35;
+
+    public int UpgradeCost;
+    public bool IsUpgraded = false;
 
     [Header("Optional Laser Attributes")]
     public bool IsLaser = false;
@@ -21,7 +25,6 @@ public class Turret : MonoBehaviour
     public ParticleSystem ImpactEffect;
     public Light ImpactLight;
 
-    public int DamagePerSecond = 35;
     public float SlowPercentage = 0.3f;
 
     [Header("Unity Setup Fields")]
