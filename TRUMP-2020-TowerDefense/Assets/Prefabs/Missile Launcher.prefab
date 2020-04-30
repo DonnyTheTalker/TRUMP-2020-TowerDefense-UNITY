@@ -282,7 +282,7 @@ MonoBehaviour:
   FireRate: 0.25
   DamagePerSecond: 75
   SellCost: 200
-  UpgradeCost: 350
+  UpgradeCost: 400
   IsUpgraded: 0
   IsLaser: 0
   Laser: {fileID: 0}

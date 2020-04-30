@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     
         if (!_gameEnded) {
 
-            if (PlayerStats.nLives <= 0) {
+            if (PlayerStats.nLives <= 0 || Input.GetKeyDown(KeyCode.P)) {
 
                 nodeUI.SetActive(false);
                 EndGame();
