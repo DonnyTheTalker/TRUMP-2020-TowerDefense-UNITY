@@ -6,6 +6,7 @@ public class GameOver : MonoBehaviour
 {
     public Text RoundsText;
     public string MainMenuScene = "MainMenu";
+    [SerializeField] private SceneFader _sceneFader;
 
     void OnEnable()
     {
@@ -14,7 +15,7 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        _sceneFader.FadeTo(SceneManager.GetActiveScene().name);
     }
 
     public void Menu()
