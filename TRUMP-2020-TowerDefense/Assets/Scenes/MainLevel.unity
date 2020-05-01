@@ -18532,6 +18532,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1084742404}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1089664674 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4806606211476739647, guid: 8390981da25093c4dac77df1b5fa5120,
+    type: 3}
+  m_PrefabInstance: {fileID: 1520527660}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4e2fa0af009b44c89a52749590f248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1090233828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19833,6 +19845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 1341275361}
   MainMenuScene: MainMenu
+  _sceneFader: {fileID: 1089664674}
 --- !u!1 &1182544502
 GameObject:
   m_ObjectHideFlags: 0
@@ -20991,6 +21004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoundsText: {fileID: 6650434}
   MainMenuScene: MainMenu
+  _sceneFader: {fileID: 1089664674}
 --- !u!225 &1229881414
 CanvasGroup:
   m_ObjectHideFlags: 0
