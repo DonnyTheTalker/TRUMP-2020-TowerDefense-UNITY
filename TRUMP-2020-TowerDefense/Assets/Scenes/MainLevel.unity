@@ -5164,7 +5164,6 @@ GameObject:
   - component: {fileID: 299254726}
   - component: {fileID: 299254725}
   - component: {fileID: 299254728}
-  - component: {fileID: 299254729}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -5290,25 +5289,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!95 &299254729
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299254723}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1038ea12de037fc4babf4a9dda746c10, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &300065960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13025,7 +13005,6 @@ GameObject:
   - component: {fileID: 762599607}
   - component: {fileID: 762599606}
   - component: {fileID: 762599609}
-  - component: {fileID: 762599610}
   m_Layer: 5
   m_Name: Retry
   m_TagString: Untagged
@@ -13151,25 +13130,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!95 &762599610
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762599604}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1038ea12de037fc4babf4a9dda746c10, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &776789648
 PrefabInstance:
   m_ObjectHideFlags: 0
