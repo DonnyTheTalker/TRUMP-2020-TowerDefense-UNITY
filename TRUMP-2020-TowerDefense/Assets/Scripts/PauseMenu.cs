@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
 
     public GameObject ui;
+    public string MainMenuScene = "MainMenu";
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -41,7 +42,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Menu()
     {
-
+        SceneManager.LoadScene(MainMenuScene);
 
     }
 
