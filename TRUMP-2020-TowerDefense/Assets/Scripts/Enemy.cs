@@ -34,6 +34,9 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+
+        WaveSpawner.EnemiesAlive--;
+
         ParticleSystem effect = (ParticleSystem)Instantiate(DeathEffect, transform.position, Quaternion.identity);
         Destroy(effect.gameObject, 2f);
 

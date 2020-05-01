@@ -32,4 +32,11 @@ public class PlayerStats : MonoBehaviour
 
     } 
 
+    public static void Die()
+    {
+
+        nLives = 0;
+
+    }
+
 }
