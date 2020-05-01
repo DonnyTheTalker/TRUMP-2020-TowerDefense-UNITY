@@ -27,14 +27,25 @@ public class WaveSpawner : MonoBehaviour
     {
 
         if (EnemiesAlive > 0)
+            return; 
+
+        if (_waveIndex == _waves.Length && EnemiesAlive == 0) {
+
+            PlayerStats.RoundsSurvived++;
+            PlayerStats.Die();
             return;
 
+        }
+
         _countdown -= Time.deltaTime;
+        _countdown = Mathf.Clamp(_countdown, 0f, Mathf.Infinity);
+
         WaveCountdown.text = string.Format("{0}{1}.{2}{3}", (int)(_countdown / 10), (int)(_countdown) % 10,
                                                             (int)(_countdown * 10) % 10, (int)(_countdown * 100) % 10);
 
         if (_countdown <= 0f) {
 
+            PlayerStats.RoundsSurvived++;
             StartCoroutine(SpawnWave());
             _countdown = WaveGapDelay;
 
@@ -43,9 +54,7 @@ public class WaveSpawner : MonoBehaviour
 
     // use IEnumerator so that enemies won't spawn inside themselves
     IEnumerator SpawnWave()
-    {
-
-        PlayerStats.RoundsSurvived = _waveIndex;
+    { 
 
         for (int k = 0; k < _waves[_waveIndex].Enemies.Length; k++) {
 
@@ -59,12 +68,6 @@ public class WaveSpawner : MonoBehaviour
         }  
 
         _waveIndex += 1;
-
-        if (_waveIndex == _waves.Length) {
-
-            PlayerStats.Die(); 
-
-        }
 
     }
 
