@@ -23,6 +23,7 @@ public class WaveSpawner : MonoBehaviour
     private int _waveIndex = 0;
 
     public Stat RoundsRecord;
+    public GameObject GameWon;
 
     void Start()
     {
@@ -37,8 +38,8 @@ public class WaveSpawner : MonoBehaviour
             return; 
 
         if (_waveIndex == _waves.Length && EnemiesAlive == 0) {
-             
-            PlayerStats.Die();
+
+            GameWon.SetActive(true);
             return;
 
         }
