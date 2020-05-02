@@ -19906,6 +19906,7 @@ MonoBehaviour:
     nEnemies: 
     nSpawnRate: 030000000500000001000000
   WaveGapDelay: 2
+  RoundsRecord: {fileID: 11400000, guid: e39897f4bcbd8904ab530ccbb97a4f59, type: 2}
 --- !u!4 &1181085321
 Transform:
   m_ObjectHideFlags: 0

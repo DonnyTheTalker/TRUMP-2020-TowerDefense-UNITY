@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 516444630}
   - component: {fileID: 516444629}
   m_Layer: 5
-  m_Name: RecordText (1)
+  m_Name: RecordNum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1712,6 +1712,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneFader: {fileID: 543526040}
+  _roundsRecord: {fileID: 11400000, guid: e39897f4bcbd8904ab530ccbb97a4f59, type: 2}
+  _roundsRecordText: {fileID: 516444629}
 --- !u!1 &1792714146
 GameObject:
   m_ObjectHideFlags: 0

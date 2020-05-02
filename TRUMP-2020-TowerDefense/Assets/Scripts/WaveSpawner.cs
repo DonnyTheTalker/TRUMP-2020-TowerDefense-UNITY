@@ -22,6 +22,8 @@ public class WaveSpawner : MonoBehaviour
     private float _countdown = 2f;
     private int _waveIndex = 0;
 
+    public Stat RoundsRecord;
+
     void Start()
     {
         EnemiesAlive = 0;
@@ -35,8 +37,7 @@ public class WaveSpawner : MonoBehaviour
             return; 
 
         if (_waveIndex == _waves.Length && EnemiesAlive == 0) {
-
-            PlayerStats.RoundsSurvived++;
+             
             PlayerStats.Die();
             return;
 
@@ -57,6 +58,7 @@ public class WaveSpawner : MonoBehaviour
 
             if (_isSandBox) {
 
+                RoundsRecord.SetValue(Math.Max(RoundsRecord.Value, PlayerStats.RoundsSurvived - 1));
                 StartCoroutine(SpawnInfiniteWave());
 
             } else {
