@@ -15113,8 +15113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5e29a02364e0347bce624cd5bbfde8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartMoney: 500
-  StartLives: 5
+  StartMoney: 300
+  StartLives: 10
 --- !u!1 &880986535
 GameObject:
   m_ObjectHideFlags: 0
@@ -19895,35 +19895,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b424a4253953904bb94d40b9147440a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSandBox: 1
   SpawnPoint: {fileID: 64141286}
   WaveCountdown: {fileID: 1788280367}
   _waves:
   - Enemies:
     - {fileID: 2916785691977509874, guid: 94b3422d0f7e88941bdd40a05f075c07, type: 3}
-    nEnemies: 03000000
-    nSpawnRate: 03000000
-  - Enemies:
-    - {fileID: 2916785691977509874, guid: 94b3422d0f7e88941bdd40a05f075c07, type: 3}
-    nEnemies: 05000000
-    nSpawnRate: 03000000
-  - Enemies:
-    - {fileID: 2916785691977509874, guid: 72cba371216166742bc2eb89648b1431, type: 3}
-    nEnemies: 03000000
-    nSpawnRate: 02000000
-  - Enemies:
-    - {fileID: 2916785691977509874, guid: 94b3422d0f7e88941bdd40a05f075c07, type: 3}
     - {fileID: 2916785691977509874, guid: ed863f2a66656894988377ae82642f4f, type: 3}
     - {fileID: 2916785691977509874, guid: 72cba371216166742bc2eb89648b1431, type: 3}
-    nEnemies: 030000000100000001000000
+    nEnemies: 
     nSpawnRate: 030000000500000001000000
-  - Enemies:
-    - {fileID: 2916785691977509874, guid: 94b3422d0f7e88941bdd40a05f075c07, type: 3}
-    - {fileID: 2916785691977509874, guid: ed863f2a66656894988377ae82642f4f, type: 3}
-    - {fileID: 2916785691977509874, guid: 72cba371216166742bc2eb89648b1431, type: 3}
-    - {fileID: 2916785691977509874, guid: ed863f2a66656894988377ae82642f4f, type: 3}
-    - {fileID: 2916785691977509874, guid: 94b3422d0f7e88941bdd40a05f075c07, type: 3}
-    nEnemies: 0200000001000000010000000200000003000000
-    nSpawnRate: 0300000005000000010000000500000003000000
   WaveGapDelay: 2
 --- !u!4 &1181085321
 Transform:
