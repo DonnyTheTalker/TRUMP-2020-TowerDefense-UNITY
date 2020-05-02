@@ -18,7 +18,7 @@ public class WaveSpawner : MonoBehaviour
     private float _countdown = 2f;
     private int _waveIndex = 0;
 
-    private void Start()
+    void Start()
     {
         EnemiesAlive = 0;
     }

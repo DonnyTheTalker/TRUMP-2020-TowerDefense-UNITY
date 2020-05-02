@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 620f76ffd4a2e9f4594b62acb9046852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelToLoad: MainLevel
+  LevelToLoad: LevelSelector
   _sceneFader: {fileID: 1685566806}
 --- !u!225 &232994209
 CanvasGroup:
