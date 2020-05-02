@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 232994204}
   - component: {fileID: 232994209}
   - component: {fileID: 232994208}
+  - component: {fileID: 232994210}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -305,6 +306,25 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &232994210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232994203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5fec9017fd97ec45b0c95f0d149b3eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FirstLaunch: {fileID: 11400000, guid: fe258d4913534e047b94dd3bfb820e4f, type: 2}
+  RoundsRecord: {fileID: 11400000, guid: e39897f4bcbd8904ab530ccbb97a4f59, type: 2}
+  levels:
+  - {fileID: 11400000, guid: d8447023542817144a3accf32b537173, type: 2}
+  - {fileID: 11400000, guid: da99536824cc98c40bedcf3360c945be, type: 2}
+  - {fileID: 11400000, guid: e64b0138253e6c8449b96e6246ffb32c, type: 2}
+  - {fileID: 11400000, guid: e2dfc74ff21d0d7429502de5823dc374, type: 2}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0

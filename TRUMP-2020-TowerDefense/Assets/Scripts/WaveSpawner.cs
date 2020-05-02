@@ -15,7 +15,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform SpawnPoint;
     public Text WaveCountdown;
 
-    [SerializeField] Wave[] _waves;
+    [SerializeField] private Wave[] _waves;
 
     public float WaveGapDelay = 3.5f;
 
