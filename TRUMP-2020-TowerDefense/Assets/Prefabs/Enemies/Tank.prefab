@@ -279,8 +279,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 10
   _maxSpeed: 0
-  Health: 250
-  Profit: 50
+  Health: 300
+  Profit: 40
   DeathEffect: {fileID: 5772111318004941560, guid: 58b549afc087c7540b36f1542657c4fa,
     type: 3}
   HealthBar: {fileID: 344534000}

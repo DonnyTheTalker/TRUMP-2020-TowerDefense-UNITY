@@ -280,7 +280,7 @@ MonoBehaviour:
   Speed: 20
   _maxSpeed: 0
   Health: 100
-  Profit: 35
+  Profit: 30
   DeathEffect: {fileID: 5772111318004941560, guid: 56c8ba762780ec14d8ff9cfea2b6792f,
     type: 3}
   HealthBar: {fileID: 344534000}

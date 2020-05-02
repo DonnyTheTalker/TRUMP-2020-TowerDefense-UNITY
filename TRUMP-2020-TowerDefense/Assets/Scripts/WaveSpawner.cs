@@ -37,6 +37,9 @@ public class WaveSpawner : MonoBehaviour
 
         }
 
+        if (_waveIndex == _waves.Length)
+            return;
+
         _countdown -= Time.deltaTime;
         _countdown = Mathf.Clamp(_countdown, 0f, Mathf.Infinity);
 

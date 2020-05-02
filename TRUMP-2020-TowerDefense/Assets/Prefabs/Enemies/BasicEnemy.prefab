@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 114451192948082882}
   - component: {fileID: 114856157259429738}
   m_Layer: 0
-  m_Name: Enemy 2
+  m_Name: BasicEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,7 +280,7 @@ MonoBehaviour:
   Speed: 10
   _maxSpeed: 0
   Health: 150
-  Profit: 25
+  Profit: 20
   DeathEffect: {fileID: 5772111318004941560, guid: e2d28d1c585af994cb138bd3c4884177,
     type: 3}
   HealthBar: {fileID: 344534000}
