@@ -1,4 +1,4 @@
-# TRUMP-2020-TowerDefense-UNITY
+TowerDefense-UNITY
 Simple tower defense game about urgent political american migration problem
 
 
